@@ -3,10 +3,13 @@ package View;
 import Model.Career;
 import Model.Education;
 import Model.PersonInfo;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ResumeView {
+    private final String INPUT_FINISH = "q";
     private final Scanner sc;
 
     public ResumeView() {
@@ -33,7 +36,23 @@ public class ResumeView {
     }
 
     public List<Education> inputEducationList() {
-        List<Education> educations = List.of();
+        List<Education> educations = new ArrayList<>();
+        System.out.println("학력 정보를 입력하세요 (종료는 "+INPUT_FINISH+"):");
+
+        while(true) {
+            System.out.println("졸업년 학교명 전공 졸업여부");
+            String educationInfo = sc.nextLine();
+
+            if(educationInfo.equals(INPUT_FINISH)) {
+                break;
+            } else {
+                try {
+                    educations.add(Education.from(educationInfo));
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e + "다시 입력해주세요.");
+                }
+            }
+        }
 
         return educations;
     }
