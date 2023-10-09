@@ -79,8 +79,19 @@ public class ResumeView {
     }
 
     public String inputSelfIntroduction() {
-        String selfIntroduction = sc.nextLine();
+        System.out.println("자기소개서를 입력하세요. 여러 줄을 입력하려면 빈 줄을 입력하세요.");
+        StringBuilder selfIntroductionBuilder = new StringBuilder();
 
-        return selfIntroduction;
+        while(true) {
+            String selfIntroduction = sc.nextLine();
+            if(!selfIntroduction.trim().isEmpty()) {
+                selfIntroductionBuilder.append(selfIntroduction)
+                        .append("\n");
+            } else {
+                break;
+            }
+        }
+
+        return selfIntroductionBuilder.toString();
     }
 }
