@@ -30,9 +30,7 @@ public class ResumeView {
         System.out.print("생년월일을 입력하세요 (예: 1990-01-01):");
         String birthDate = sc.nextLine();
 
-        PersonInfo personInfo = PersonInfo.of(photo, name, email, address, phoneNumber, birthDate);
-
-        return personInfo;
+        return PersonInfo.of(photo, name, email, address, phoneNumber, birthDate);
     }
 
     public List<Education> inputEducationList() {
