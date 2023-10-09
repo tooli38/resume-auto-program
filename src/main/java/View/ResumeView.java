@@ -58,7 +58,22 @@ public class ResumeView {
     }
 
     public List<Career> inputCareerList() {
-        List<Career> careers = List.of();
+        List<Career> careers = new ArrayList<>();
+        while(true) {
+            System.out.println("경력 정보를 입력하세요 (종료는 "+INPUT_FINISH+"):");
+            System.out.println("근무기간 근무처 담당업무 근속연수");
+            String careersInfo = sc.nextLine();
+
+            if(careersInfo.equals(INPUT_FINISH)) {
+                break;
+            } else {
+                try {
+                    careers.add(Career.from(careersInfo));
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e + "다시 입력해주세요.");
+                }
+            }
+        }
 
         return careers;
     }

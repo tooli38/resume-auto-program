@@ -17,6 +17,21 @@ public class Career {
         return new Career(workPeriod, companyName, jobTitle, employMentYears);
     }
 
+    public static Career from(String educationInfo) {
+        String[] careerInfoSplit = educationInfo.split(" ");
+
+        if(careerInfoSplit.length != 4) {
+            throw new IllegalArgumentException("잘못된 학력 정보가 입력되었습니다.");
+        }
+
+        return Career.of(
+                careerInfoSplit[0],
+                careerInfoSplit[1],
+                careerInfoSplit[2],
+                careerInfoSplit[3]
+        );
+    }
+
     public String getWorkPeriod() {
         return workPeriod;
     }
