@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class ResumeView {
 
-    private Scanner sc;
+    private final Scanner sc;
 
     public ResumeView() {
         sc = new Scanner(System.in);
