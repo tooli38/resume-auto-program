@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ResumeController {
 
-    private final double FIXEL_SIZE = 2.83465;
+    private final double PIXEL_SIZE = 2.83465;
     private final ResumeView view;
     private final XSSFWorkbook workbook;
 
@@ -70,8 +70,8 @@ public class ResumeController {
         try (InputStream photoStream = new FileInputStream(photoFileName)) {
             BufferedImage originalImage = ImageIO.read(photoStream);
 
-            int newWidth = (int) (35 * FIXEL_SIZE);
-            int newHeight = (int) (45 * FIXEL_SIZE);
+            int newWidth = (int) (35 * PIXEL_SIZE);
+            int newHeight = (int) (45 * PIXEL_SIZE);
             Image resizedImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
             BufferedImage resizedBufferedImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_4BYTE_ABGR);
             Graphics2D g2d = resizedBufferedImage.createGraphics();
